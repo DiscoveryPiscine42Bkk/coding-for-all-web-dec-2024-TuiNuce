@@ -1,0 +1,39 @@
+table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+td {
+    text-align: center;
+    vertical-align: middle;
+    font-size: 24px;
+    color: white;
+    height: 150px;
+    overflow: hidden;
+    word-wrap: break-word;
+    overflow-y: auto; 
+}
+
+.box1 {
+    background-color: #83dfe9;
+    color: #1a98a6;
+}
+
+.box2 {
+    background-color: #b3ecf1;
+    color: #1a98a6;
+}
+
+@media screen and (max-width: 767px) {
+    td {
+        width: 50%;
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    td {
+        font-size: 18px;
+    }
+}
