@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basics</title>
+    <style>
+        body {
+            background-color: pink;
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 48px;
+            color: white;
+        }
+
+        .images {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .images a {
+            display: block;
+            width: 300px; 
+            height: auto;
+        }
+
+        img {
+            width: 100%; 
+            height: auto;
+        }
+
+        .image-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        p {
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        hr {
+            width: 100%;
+            border: 1px solid black;
+        }
+
+        .copyright {
+            text-align: right;
+            font-style: italic;
+            font-family: "Courier New", monospace;
+            padding-right: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Welcome to Basics!</h1>
+
+    <div class="images">
+        <div class="image-container">
+            <a href="https://www.alibaba.com/" target="_blank">
+                <img src="https://1000logos.net/wp-content/uploads/2018/10/Alibaba-Logo.png" alt="Online Shop 1">
+            </a>
+            <p><a href="https://www.alibaba.com/" target="_blank"></a></p>
+        </div>
+        <div class="image-container">
+            <a href="https://best.aliexpress.com/" target="_blank">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/3/3b/Aliexpress_logo.svg" alt="Online Shop 2">
+            </a>
+            <p><a href="https://best.aliexpress.com/" target="_blank"></a></p>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="copyright">
+        © nchaiya 2024
+    </div>
+
+</body>
+</html>
