@@ -1,7 +1,16 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden; /* ซ่อน scroll bar */
+}
+
 table {
     width: 100%;
+    height: 100%; /* ตารางเต็มจอ */
     border-collapse: collapse;
-    table-layout: fixed;
+    table-layout: fixed; /* ให้เซลล์มีขนาดเท่ากัน */
 }
 
 td {
@@ -9,12 +18,11 @@ td {
     vertical-align: middle;
     font-size: 24px;
     color: white;
-    height: 150px;
-    overflow: hidden;
-    word-wrap: break-word;
-    overflow-y: auto; 
+    overflow: hidden; /* ซ่อนส่วนเกิน */
+    word-wrap: break-word; /* ตัดคำอัตโนมัติเมื่อเกินขอบ */
 }
 
+/* สีของแต่ละกล่อง */
 .box1 {
     background-color: #83dfe9;
     color: #1a98a6;
@@ -25,15 +33,15 @@ td {
     color: #1a98a6;
 }
 
+/* สำหรับหน้าจอขนาดเล็ก */
 @media screen and (max-width: 767px) {
     td {
-        width: 50%;
-        font-size: 20px;
+        font-size: 20px; /* ลดขนาดตัวอักษรเล็กน้อย */
     }
 }
 
 @media screen and (max-width: 480px) {
     td {
-        font-size: 18px;
+        font-size: 18px; /* ลดขนาดตัวอักษรเพิ่มเติมสำหรับมือถือขนาดเล็ก */
     }
 }
