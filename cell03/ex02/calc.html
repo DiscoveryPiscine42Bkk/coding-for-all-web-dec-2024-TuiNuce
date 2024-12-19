@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        /* สไตล์พื้นฐาน */
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        input, select {
+            padding: 10px;
+            margin: 10px;
+            font-size: 16px;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+            border: none;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Basic Calculator</h1>
+    <form id="calc-form">
+        <input type="number" id="left-number" placeholder="Left number" min="0" required>
+        <select id="operator" required>
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+            <option value="%">%</option>
+        </select>
+        <input type="number" id="right-number" placeholder="Right number" min="0" required>
+        <input type="submit" value="Try me!">
+    </form>
+
+    <script>
+        document.getElementById('calc-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const leftNumber = parseInt(document.getElementById('left-number').value);
+            const rightNumber = parseInt(document.getElementById('right-number').value);
+            const operator = document.getElementById('operator').value;
+
+            // ตรวจสอบค่าที่ป้อนมา
+            if (isNaN(leftNumber) || isNaN(rightNumber) || leftNumber < 0 || rightNumber < 0) {
+                alert("Error :(");
+                return;
+            }
+
+            // ตรวจสอบการหารหรือหาค่าร้อยด้วย 0
+            if ((operator === '/' || operator === '%') && rightNumber === 0) {
+                alert("It’s over 9000!");
+                return;
+            }
+
+            let result;
+
+            // คำนวณตามตัวดำเนินการ
+            switch (operator) {
+                case '+':
+                    result = leftNumber + rightNumber;
+                    break;
+                case '-':
+                    result = leftNumber - rightNumber;
+                    break;
+                case '*':
+                    result = leftNumber * rightNumber;
+                    break;
+                case '/':
+                    result = leftNumber / rightNumber;
+                    break;
+                case '%':
+                    result = leftNumber % rightNumber;
+                    break;
+                default:
+                    break;
+            }
+
+            // แสดงผลลัพธ์
+            alert("Result: " + result);
+            console.log("Result: " + result);
+        });
+
+        // แจ้งเตือนทุก 30 วินาที
+        setInterval(() => {
+            alert("Please, use me...");
+        }, 30000);
+    </script>
+</body>
+</html>
