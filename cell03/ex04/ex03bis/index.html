@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To-Do List</title>
+</head>
+<body>
+  <button id="newTodo">New</button>
+  <div id="ft_list"></div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      function loadTodos() {
+        const todos = JSON.parse(localStorage.getItem("todos") || "[]");
+        todos.forEach(todo => addTodoToDOM(todo, false));
+      }
+
+      function saveTodos() {
+        const todos = [];
+        $("#ft_list").children().each(function () {
+          todos.push($(this).text());
+        });
+        localStorage.setItem("todos", JSON.stringify(todos));
+      }
+
+      function addTodoToDOM(todoText, save = true) {
+        const todoItem = $("<div>").text(todoText).on("click", function () {
+          if (confirm("Do you want to remove this To-Do?")) {
+            $(this).remove();
+            saveTodos();
+          }
+        });
+        $("#ft_list").prepend(todoItem);
+        if (save) saveTodos();
+      }
+
+      $("#newTodo").on("click", function () {
+        const newTodo = prompt("Enter your new To-Do:");
+        if (newTodo && newTodo.trim() !== "") {
+          addTodoToDOM(newTodo.trim());
+        } else {
+          alert("Error :( Please enter a valid To-Do!");
+        }
+      });
+
+      loadTodos();
+    });
+  </script>
+</body>
+</html>
