@@ -6,7 +6,7 @@
   <title>Calculator</title>
 </head>
 <body>
-  <input type="number" id="leftOperand" placeholder="Enter a number">
+  <input type="text" id="leftOperand" placeholder="Enter a number">
   <select id="operator">
     <option value="+">+</option>
     <option value="-">-</option>
@@ -14,7 +14,7 @@
     <option value="/">/</option>
     <option value="%">%</option>
   </select>
-  <input type="number" id="rightOperand" placeholder="Enter another number">
+  <input type="text" id="rightOperand" placeholder="Enter another number">
   <button id="calculate">Try me!</button>
 
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -39,19 +39,19 @@
         let result;
         switch (operator) {
           case "+":
-            result = leftOperand + rightOperand;
+            result = Math.round(leftOperand + rightOperand);
             break;
           case "-":
-            result = leftOperand - rightOperand;
+            result = Math.round(leftOperand - rightOperand);
             break;
           case "*":
-            result = leftOperand * rightOperand;
+            result = Math.round(leftOperand * rightOperand);
             break;
           case "/":
-            result = leftOperand / rightOperand;
+            result = Math.round(leftOperand / rightOperand);
             break;
           case "%":
-            result = leftOperand % rightOperand;
+            result = Math.round(leftOperand % rightOperand);
             break;
         }
 
